@@ -1,5 +1,10 @@
 #!/bin/bash
 
+if [[ $EUID -ne 0 ]]; then
+   echo -e "${RED}$0 must be run as user1.${NC}"
+   exit 1
+fi
+
 TMP_FOLDER=$(mktemp -d)
 CONFIG_FILE='galilel.conf'
 CONFIGFOLDER='/home/user1/.galilel'
@@ -214,7 +219,7 @@ if [[ $(lsb_release -d) != *16.04* ]]; then
   exit 1
 fi
 
-if [ "$(whoami)" != "user1" ]; then
+if [[ $EUID -ne 0 ]]; then
    echo -e "${RED}$0 must be run as user1.${NC}"
    exit 1
 fi
