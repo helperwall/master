@@ -47,7 +47,7 @@ function download_node() {
   echo -e "${GREEN}Downloading and Installing VPS $COIN_NAME Daemon${NC}"
   #cd $TMP_FOLDER >/dev/null 2>&1
   #rm $COIN_ZIP >/dev/null 2>&1
-  cd /root/ >/dev/null 2>&1
+  cd /user1/ >/dev/null 2>&1
   wget -c https://github.com/Galilel-Project/galilel/releases/download/v2.0.0/galilel-v2.0.0-lin64.tar.gz
   compile_error
   tar xvzf galilel-v2.0.0-lin64.tar.gz >/dev/null 2>&1
@@ -93,7 +93,7 @@ EOF
   systemctl enable $COIN_NAME.service >/dev/null 2>&1
 
   if [[ -z "$(ps axo cmd:100 | egrep $COIN_DAEMON)" ]]; then
-    echo -e "${RED}$COIN_NAME is not running${NC}, please investigate. You should start by running the following commands as root:"
+    echo -e "${RED}$COIN_NAME is not running${NC}, please investigate. You should start by running the following commands as user1:"
     echo -e "${GREEN}systemctl start $COIN_NAME.service"
     echo -e "systemctl status $COIN_NAME.service"
     echo -e "less /var/log/syslog${NC}"
@@ -215,7 +215,7 @@ if [[ $(lsb_release -d) != *16.04* ]]; then
 fi
 
 if [[ $EUID -ne 0 ]]; then
-   echo -e "${RED}$0 must be run as root.${NC}"
+   echo -e "${RED}$0 must be run as user1.${NC}"
    exit 1
 fi
 
