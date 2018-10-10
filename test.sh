@@ -228,6 +228,7 @@ fi
 
 if [ -n "$(pidof $COIN_DAEMON)" ] || [ -e "$COIN_DAEMOM" ] ; then
   echo -e "${RED}$COIN_NAME is already installed.${NC}"
+  echo $USER
   exit 1
 fi
 }
