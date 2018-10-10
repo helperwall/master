@@ -2,7 +2,7 @@
 
 TMP_FOLDER=$(mktemp -d)
 CONFIG_FILE='galilel.conf'
-CONFIGFOLDER='/root/.galilel'
+CONFIGFOLDER='/home/user1/.galilel'
 COIN_DAEMON='galileld'
 COIN_CLI='galilel-cli'
 COIN_PATH='/usr/local/bin/'
