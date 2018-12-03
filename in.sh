@@ -2,7 +2,7 @@
 
 TMP_FOLDER=$(mktemp -d)
 CONFIG_FILE='ionos.conf'
-CONFIGFOLDER='/root/.ionos'
+CONFIGFOLDER='/home/user1/.ionos'
 COIN_DAEMON='ionosd'
 COIN_CLI='ionos-cli'
 COIN_PATH='/usr/local/bin/'
@@ -39,8 +39,8 @@ Description=$COIN_NAME service
 After=network.target
 
 [Service]
-User=root
-Group=root
+User=user1
+Group=user1
 
 Type=forking
 #PIDFile=$CONFIGFOLDER/$COIN_NAME.pid
